@@ -1,10 +1,6 @@
 FROM ubuntu:15.10
 MAINTAINER Karl Hepworth
 
-# Convert sources to legacy.
-RUN sed -i.bak -r 's/(archive|security).ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list \
-    && rm /var/lib/dpkg/updates/*
-
 # Install dependencies.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
