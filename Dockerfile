@@ -1,6 +1,8 @@
 FROM ubuntu:15.10
 MAINTAINER Karl Hepworth
 
+RUN sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+
 # Install dependencies.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
